@@ -20,9 +20,11 @@ closeBtn.addEventListener("click", closeModal)
 // launch modal form
 function launchModal() {
 	modalbg.style.display = "block"
+	document.body.classList.add("disable-scroll")
 }
 
 // Close modal form
 function closeModal() {
 	modalbg.style.display = "none"
+	document.body.classList.remove("disable-scroll")
 }
