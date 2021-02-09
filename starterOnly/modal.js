@@ -7,18 +7,21 @@ function editNav() {
 	}
 }
 
-var formularIsValid = true
+var formularIsValid = false
 
 // DOM Elements
 const modalbg = document.querySelector(".bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
+
+const formData = document.querySelectorAll(".formData")
+
 const closeBtn = document.querySelectorAll(".close-modal")
 const submitBtn = document.querySelector(".btn-submit")
 
-const requiredInputs = document.querySelectorAll("input[required]")
-const errorMessage = document.querySelector(".error-message")
 const modalBodyFirst = document.querySelector(".modal-body__first")
 const modalBodySecond = document.querySelector(".modal-body__second")
+
+const inputDate = document.querySelector(".formData input[type=date]")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
@@ -28,6 +31,10 @@ closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 
 // Submit event
 submitBtn.addEventListener("click", validate)
+
+let [month, day, year] = new Date().toLocaleDateString("en-US").split("/")
+year -= 18
+inputDate.setAttribute("max", year + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
 
 // launch modal form
 function launchModal() {
@@ -45,12 +52,18 @@ function closeModal() {
 function validate(e) {
 	e.preventDefault()
 	formularIsValid = true
-	requiredInputs.forEach((element) => {
-		if (element.matches(":invalid")) {
-			errorMessage.classList.add("visible")
-			formularIsValid = false
-		}
+
+	formData.forEach((element) => {
+		element.querySelectorAll("input[required]").forEach((input) => {
+			if (input.matches(":invalid")) {
+				element.setAttribute("data-error-visible", "true")
+				formularIsValid = false
+			} else {
+				element.setAttribute("data-error-visible", "false")
+			}
+		})
 	})
+
 	if (formularIsValid) {
 		modalBodyFirst.style.display = "none"
 		modalBodySecond.style.display = "block"
