@@ -14,14 +14,6 @@
 	overflow: hidden;
 }
 
-.error-message {
-	visibility: hidden;
-}
-
-.visible {
-	visibility: visible;
-}
-
 /* Landing Page */
 
 body {

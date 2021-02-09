@@ -1,3 +1,29 @@
+// ************* Variables ************* //
+var formularIsValid = false
+var [month, day, year] = new Date().toLocaleDateString("en-US").split("/")
+
+// ************* DOM Elements ************* //
+const modalbg = document.querySelector(".bground")
+const modalBtn = document.querySelectorAll(".modal-btn")
+const formData = document.querySelectorAll(".formData")
+const closeBtn = document.querySelectorAll(".close-modal")
+const submitBtn = document.querySelector(".btn-submit")
+const modalBodyFirst = document.querySelector(".modal-body__first")
+const modalBodySecond = document.querySelector(".modal-body__second")
+const inputDate = document.querySelector(".formData input[type=date]")
+
+// ************* Events listeners ************* //
+// launch modal
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
+// CLose modal
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
+// Submit button
+submitBtn.addEventListener("click", validate)
+
+// ************* DOM Modifications ************* //
+inputDate.setAttribute("max", year - 18 + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
+
+// ************* Functions ************* //
 function editNav() {
 	var x = document.getElementById("myTopnav")
 	if (x.className === "topnav") {
@@ -6,35 +32,6 @@ function editNav() {
 		x.className = "topnav"
 	}
 }
-
-var formularIsValid = false
-
-// DOM Elements
-const modalbg = document.querySelector(".bground")
-const modalBtn = document.querySelectorAll(".modal-btn")
-
-const formData = document.querySelectorAll(".formData")
-
-const closeBtn = document.querySelectorAll(".close-modal")
-const submitBtn = document.querySelector(".btn-submit")
-
-const modalBodyFirst = document.querySelector(".modal-body__first")
-const modalBodySecond = document.querySelector(".modal-body__second")
-
-const inputDate = document.querySelector(".formData input[type=date]")
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
-
-// CLose modal event
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
-
-// Submit event
-submitBtn.addEventListener("click", validate)
-
-let [month, day, year] = new Date().toLocaleDateString("en-US").split("/")
-year -= 18
-inputDate.setAttribute("max", year + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
 
 // launch modal form
 function launchModal() {
@@ -48,7 +45,7 @@ function closeModal() {
 	document.body.classList.remove("disable-scroll")
 }
 
-// Submit formular
+// validate and submit formular
 function validate(e) {
 	e.preventDefault()
 	formularIsValid = true
