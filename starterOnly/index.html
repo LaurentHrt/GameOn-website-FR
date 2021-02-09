@@ -43,8 +43,8 @@
 
 			<div class="bground">
 				<div class="content">
-					<span class="close"></span>
-					<div class="modal-body">
+					<span class="close close-modal"></span>
+					<div class="modal-body modal-body__first">
 						<form name="reserve" action="index.html" method="get" onsubmit="return validate();">
 							<div class="formData">
 								<label>Prénom</label><br />
@@ -126,11 +126,15 @@
 							</div>
 							<input class="button btn-submit" type="submit" value="C'est parti" />
 						</form>
-						<p class="error-message">Merci de renseigner les champs obligatoires</p>
+					</div>
+					<div class="modal-body modal-body__second">
+						Merci de votre inscription
+						<button class="button btn-close close-modal">Fermer</button>
 					</div>
 				</div>
 			</div>
 		</main>
+
 		<footer>
 			<p class="copyrights">Copyright 2014 - 2020, GameOn Inc.</p>
 		</footer>

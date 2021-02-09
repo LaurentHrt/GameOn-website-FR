@@ -21,9 +21,6 @@
 .visible {
 	visibility: visible;
 }
-.invisible {
-	visibility: hidden;
-}
 
 /* Landing Page */
 
@@ -207,6 +204,10 @@ main {
 	margin: 15px auto;
 }
 
+.modal-body__second {
+	display: none;
+}
+
 label {
 	font-family: var(--font-default);
 	font-size: 17px;
@@ -243,7 +244,7 @@ input {
 	opacity: 1;
 }
 .formData[data-error-visible="true"] .text-control {
-	border: 2px solid #e54858;
+	border: 3px solid #e54858;
 }
 /* 
 input[data-error]::after {
@@ -341,7 +342,8 @@ input[data-error]::after {
 	transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.btn-close {
 	background: #fe142f;
 	display: block;
 	margin: 0 auto;

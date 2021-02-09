@@ -12,18 +12,19 @@ var formularIsValid = true
 // DOM Elements
 const modalbg = document.querySelector(".bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
-const closeBtn = document.querySelector(".close")
+const closeBtn = document.querySelectorAll(".close-modal")
 const submitBtn = document.querySelector(".btn-submit")
 
 const requiredInputs = document.querySelectorAll("input[required]")
 const errorMessage = document.querySelector(".error-message")
-const modalBody = document.querySelector(".modal-body")
+const modalBodyFirst = document.querySelector(".modal-body__first")
+const modalBodySecond = document.querySelector(".modal-body__second")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
 
 // CLose modal event
-closeBtn.addEventListener("click", closeModal)
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 
 // Submit event
 submitBtn.addEventListener("click", validate)
@@ -51,7 +52,7 @@ function validate(e) {
 		}
 	})
 	if (formularIsValid) {
-		errorMessage.classList.remove("visible")
-		modalBody.innerHTML = "Merci de votre inscription"
+		modalBodyFirst.style.display = "none"
+		modalBodySecond.style.display = "block"
 	}
 }
