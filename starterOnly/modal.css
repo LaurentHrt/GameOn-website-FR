@@ -37,6 +37,8 @@ img {
 }
 
 .topnav {
+	display: flex;
+	justify-content: space-between;
 	overflow: hidden;
 	margin: 3.5%;
 }
@@ -72,43 +74,6 @@ img {
 
 .topnav .icon {
 	display: none;
-}
-
-@media screen and (max-width: 768px) {
-	.topnav a {
-		display: none;
-	}
-	.topnav a.icon {
-		float: right;
-		display: block;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.topnav.responsive {
-		position: relative;
-	}
-	.topnav.responsive .icon {
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-	.topnav.responsive a {
-		float: none;
-		display: block;
-		text-align: left;
-	}
-}
-
-@media screen and (max-width: 540px) {
-	.topnav a {
-		display: none;
-	}
-	.topnav a.icon {
-		float: right;
-		display: block;
-		margin-top: -15px;
-	}
 }
 
 main {
@@ -451,7 +416,7 @@ input[data-error]::after {
 .hero-headline {
 	font-size: 6rem;
 	font-weight: normal;
-	white-space: nowrap;
+	width: 80vw;
 }
 .hero-text {
 	width: 146%;
@@ -490,7 +455,38 @@ footer {
 	padding-right: 2vw;
 	margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 768px) {
+	.topnav {
+		display: block;
+	}
+	.topnav a {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+
+	.topnav.responsive {
+		position: relative;
+	}
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	.header-logo {
+		margin-right: 50px;
+	}
+	.header-logo img {
+		width: 100%;
+	}
 	.hero-section {
 		display: block;
 		box-shadow: unset;
@@ -499,6 +495,7 @@ footer {
 		background: #fff;
 		color: #000;
 		padding: 20px;
+		min-width: unset;
 	}
 	.hero-content::after {
 		content: unset;
@@ -507,8 +504,7 @@ footer {
 		display: none;
 	}
 	.hero-headline {
-		font-size: 4.5rem;
-		white-space: normal;
+		font-size: 3.5rem;
 	}
 	.hero-text {
 		width: unset;
@@ -526,6 +522,15 @@ footer {
 	.copyrights {
 		margin-top: 50px;
 		text-align: center;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.topnav a {
+		display: none;
+	}
+	.hero-headline {
+		font-size: 2.5rem;
 	}
 }
 
