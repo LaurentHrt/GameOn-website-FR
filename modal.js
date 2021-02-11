@@ -38,7 +38,7 @@ function openModal() {
 	modalbg.addEventListener("click", closeModal)
 	content.addEventListener("click", (e) => e.stopPropagation())
 	document.body.classList.add("disable-scroll")
-	modalbg.style.display = "block"
+	modalbg.style.display = "flex"
 }
 
 // Close modal form
