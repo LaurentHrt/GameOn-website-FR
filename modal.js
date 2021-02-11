@@ -69,6 +69,6 @@ function validate(e) {
 
 	if (formularIsValid) {
 		// modalBodyFirst.style.display = "none"
-		modalBodySecond.style.display = "block"
+		modalBodySecond.style.display = "flex"
 	}
 }
