@@ -1,0 +1,23 @@
+{
+	"name": "gameon",
+	"version": "1.0.0",
+	"description": "Openclassrooms - Parcours développeur Front-end",
+	"main": "index.js",
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^7.19.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LaurentHrt/LaurentHirth_4_15022021.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LaurentHrt/GameOn-website-FR/issues"
+	},
+	"homepage": "https://github.com/LaurentHrt/GameOn-website-FR#readme"
+}

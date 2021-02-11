@@ -21,14 +21,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", openModal))
 inputDate.setAttribute("max", year - 18 + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
 
 // ************* Functions ************* //
-function editNav() {
-	var x = document.getElementById("myTopnav")
-	if (x.className === "topnav") {
-		x.className += " responsive"
-	} else {
-		x.className = "topnav"
-	}
-}
 
 // open modal form
 function openModal() {
