@@ -11,14 +11,11 @@ const submitBtn = document.querySelector(".btn-submit")
 const modalBodyFirst = document.querySelector(".modal-body__first")
 const modalBodySecond = document.querySelector(".modal-body__second")
 const inputDate = document.querySelector(".formData input[type=date]")
+const content = document.querySelector(".content")
 
 // ************* Events listeners ************* //
-// launch modal
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
-// CLose modal
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
-// Submit button
-submitBtn.addEventListener("click", validate)
+// open modal
+modalBtn.forEach((btn) => btn.addEventListener("click", openModal))
 
 // ************* DOM Modifications ************* //
 inputDate.setAttribute("max", year - 18 + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
@@ -33,16 +30,24 @@ function editNav() {
 	}
 }
 
-// launch modal form
-function launchModal() {
-	modalbg.style.display = "block"
+// open modal form
+function openModal() {
+	closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
+	submitBtn.addEventListener("click", validate)
+	modalbg.addEventListener("click", closeModal)
+	content.addEventListener("click", (e) => e.stopPropagation())
 	document.body.classList.add("disable-scroll")
+	modalbg.style.display = "block"
 }
 
 // Close modal form
 function closeModal() {
-	modalbg.style.display = "none"
+	closeBtn.forEach((btn) => btn.removeEventListener("click", closeModal))
+	submitBtn.removeEventListener("click", validate)
+	modalbg.removeEventListener("click", closeModal)
+	content.removeEventListener("click", (e) => e.stopPropagation())
 	document.body.classList.remove("disable-scroll")
+	modalbg.style.display = "none"
 }
 
 // validate and submit formular
@@ -62,7 +67,7 @@ function validate(e) {
 	})
 
 	if (formularIsValid) {
-		modalBodyFirst.style.display = "none"
+		// modalBodyFirst.style.display = "none"
 		modalBodySecond.style.display = "block"
 	}
 }
