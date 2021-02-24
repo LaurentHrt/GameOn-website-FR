@@ -157,7 +157,7 @@ main {
 	margin: 15px auto;
 }
 
-.modal-body__second {
+.modal-body__confirmation {
 	display: none;
 	flex-direction: column;
 	justify-content: center;
