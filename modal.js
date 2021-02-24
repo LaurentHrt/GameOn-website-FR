@@ -8,7 +8,7 @@ const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
 const closeBtn = document.querySelectorAll(".close-modal")
 const submitBtn = document.querySelector(".btn-submit")
-const modalBodySecond = document.querySelector(".modal-body__second")
+const modalBodyConfirmation = document.querySelector(".modal-body__confirmation")
 const inputDate = document.querySelector(".formData input[type=date]")
 const modalContent = document.querySelector(".content")
 
@@ -20,7 +20,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", openModal))
 inputDate.setAttribute("max", year - 18 + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
 
 // ************* Functions ************* //
-
 function editNav() {
 	var x = document.getElementById("myTopnav")
 	if (x.className === "topnav") {
@@ -32,20 +31,26 @@ function editNav() {
 
 // open modal
 function openModal() {
+	// add event listeners
 	closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 	submitBtn.addEventListener("click", validate)
 	modalbg.addEventListener("click", closeModal)
 	modalContent.addEventListener("click", (e) => e.stopPropagation())
+
+	// Disable scroll and show modal
 	document.body.classList.add("disable-scroll")
 	modalbg.style.display = "flex"
 }
 
 // Close modal
 function closeModal() {
+	// Remove event listeners
 	closeBtn.forEach((btn) => btn.removeEventListener("click", closeModal))
 	submitBtn.removeEventListener("click", validate)
 	modalbg.removeEventListener("click", closeModal)
 	modalContent.removeEventListener("click", (e) => e.stopPropagation())
+
+	// Enable scroll and hide modal
 	document.body.classList.remove("disable-scroll")
 	modalbg.style.display = "none"
 }
@@ -67,7 +72,7 @@ function validate(e) {
 	})
 
 	if (formularIsValid) {
-		// modalBodyFirst.style.display = "none"
-		modalBodySecond.style.display = "flex"
+		// Show confirmation
+		modalBodyConfirmation.style.display = "flex"
 	}
 }
