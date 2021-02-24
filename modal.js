@@ -50,9 +50,10 @@ function closeModal() {
 	modalbg.removeEventListener("click", closeModal)
 	modalContent.removeEventListener("click", (e) => e.stopPropagation())
 
-	// Enable scroll and hide modal
+	// Enable scroll, hide and reset modal
 	document.body.classList.remove("disable-scroll")
 	modalbg.style.display = "none"
+	modalBodyConfirmation.style.display = "none"
 }
 
 // validate and submit formular
