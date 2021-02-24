@@ -479,6 +479,7 @@ footer {
 
 	.topnav.responsive {
 		position: relative;
+		flex-wrap: wrap;
 	}
 	.topnav.responsive .icon {
 		position: absolute;
