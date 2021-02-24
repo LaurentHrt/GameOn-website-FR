@@ -1,6 +1,6 @@
 // ************* Variables ************* //
-var formularIsValid = false
-var [month, day, year] = new Date().toLocaleDateString("en-US").split("/")
+let formularIsValid = false
+let date = new Date()
 
 // ************* DOM Elements ************* //
 const modalbg = document.querySelector(".bground")
@@ -17,11 +17,11 @@ const modalContent = document.querySelector(".content")
 modalBtn.forEach((btn) => btn.addEventListener("click", openModal))
 
 // ************* DOM Modifications ************* //
-inputDate.setAttribute("max", year - 18 + "-" + month.padStart(2, "0") + "-" + day.padStart(2, "0"))
+inputDate.setAttribute("max", date.getFullYear() - 18 + "-" + String(date.getMonth()).padStart(2, "0") + "-" + String(date.getDate()).padStart(2, "0"))
 
 // ************* Functions ************* //
 function editNav() {
-	var x = document.getElementById("myTopnav")
+	let x = document.getElementById("myTopnav")
 	if (x.className === "topnav") {
 		x.className += " responsive"
 	} else {
