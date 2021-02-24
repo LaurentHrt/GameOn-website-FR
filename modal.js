@@ -8,10 +8,9 @@ const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
 const closeBtn = document.querySelectorAll(".close-modal")
 const submitBtn = document.querySelector(".btn-submit")
-const modalBodyFirst = document.querySelector(".modal-body__first")
 const modalBodySecond = document.querySelector(".modal-body__second")
 const inputDate = document.querySelector(".formData input[type=date]")
-const content = document.querySelector(".content")
+const modalContent = document.querySelector(".content")
 
 // ************* Events listeners ************* //
 // open modal
@@ -31,22 +30,22 @@ function editNav() {
 	}
 }
 
-// open modal form
+// open modal
 function openModal() {
 	closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 	submitBtn.addEventListener("click", validate)
 	modalbg.addEventListener("click", closeModal)
-	content.addEventListener("click", (e) => e.stopPropagation())
+	modalContent.addEventListener("click", (e) => e.stopPropagation())
 	document.body.classList.add("disable-scroll")
-	modalbg.style.display = "block"
+	modalbg.style.display = "flex"
 }
 
-// Close modal form
+// Close modal
 function closeModal() {
 	closeBtn.forEach((btn) => btn.removeEventListener("click", closeModal))
 	submitBtn.removeEventListener("click", validate)
 	modalbg.removeEventListener("click", closeModal)
-	content.removeEventListener("click", (e) => e.stopPropagation())
+	modalContent.removeEventListener("click", (e) => e.stopPropagation())
 	document.body.classList.remove("disable-scroll")
 	modalbg.style.display = "none"
 }
