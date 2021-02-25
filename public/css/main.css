@@ -141,7 +141,8 @@ main {
 .content {
 	margin: auto;
 	width: 100%;
-	max-width: 500px;
+	height: max-content;
+	max-width: 550px;
 	animation-name: modalopen;
 	animation-duration: var(--modal-duration);
 	background: #232323;
@@ -540,6 +541,13 @@ footer {
 	}
 	.hero-text {
 		font-size: 1rem;
+	}
+	.content {
+		top: 70px;
+		margin: 0 auto;
+	}
+	.bground {
+		background-color: initial;
 	}
 }
 

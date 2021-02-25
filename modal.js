@@ -8,6 +8,7 @@ const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
 const closeBtn = document.querySelectorAll(".close-modal")
 const submitBtn = document.querySelector(".btn-submit")
+const modalBodyForm = document.querySelector(".modal-body__form")
 const modalBodyConfirmation = document.querySelector(".modal-body__confirmation")
 const inputDate = document.querySelector(".formData input[type=date]")
 const modalContent = document.querySelector(".content")
@@ -37,6 +38,7 @@ function openModal() {
 	modalbg.addEventListener("click", closeModal)
 	modalContent.addEventListener("click", (e) => e.stopPropagation())
 
+	window.scrollTo(0, 0)
 	// Disable scroll and show modal
 	document.body.classList.add("disable-scroll")
 	modalbg.style.display = "flex"
@@ -74,6 +76,7 @@ function validate(e) {
 
 	if (formularIsValid) {
 		// Show confirmation
+		modalBodyForm.style.display = "hidden"
 		modalBodyConfirmation.style.display = "flex"
 	}
 }
