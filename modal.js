@@ -1,5 +1,4 @@
-// ************* Variables ************* //
-let formularIsValid = false
+// ************* Variables Globale ************* //
 let date = new Date()
 
 // ************* DOM Elements ************* //
@@ -61,7 +60,7 @@ function closeModal() {
 // validate and submit formular
 function validate(e) {
 	e.preventDefault()
-	formularIsValid = true
+	let formularIsValid = false
 
 	formData.forEach((element) => {
 		element.querySelectorAll("input[required]").forEach((input) => {
